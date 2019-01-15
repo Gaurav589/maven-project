@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stages{
+        stage('Build'){
+            steps {
+                sh '/Users/gauravagnihotri/Downloads/apache-maven-3.3.9/bin/mvn clean package'
+                sh '/Users/gauravagnihotri/Downloads/apache-maven-3.3.9/bin/docker build . -t tomcatwebapp:${env.BUILD_ID}'
+            }
+        }
+        
+     }
+     
+}
